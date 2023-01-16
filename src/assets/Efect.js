@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Clicky from "./Clicky";
 
 function Efect() {
   const [data, setData] = useState();
@@ -23,6 +24,15 @@ function Efect() {
   }, []);
   return (
     <>
+    <div className="flex flex-col">
+      {data?.map((item,index) => {
+       
+        return (<Clicky key={index} product={{image: item?.thumbnail,name: item?.title,price: item?.price}}/>)
+        
+      })}
+      
+      
+    </div>
       <div className="container p-5">
         {loader ? (
           "loading data ..."
