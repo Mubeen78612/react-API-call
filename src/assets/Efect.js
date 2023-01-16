@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Clicky from "./Clicky";
+import Next from "./Next";
 
 function Efect() {
   const [data, setData] = useState();
@@ -39,6 +40,15 @@ function Efect() {
           );
         })}
       </div>
+      <div className=" columns-3 p-5">
+        {data?.map((item, index) => {
+          return (
+      <Next 
+      key={index}
+      item={item}/>
+          );
+        })}
+        </div>
       <div className="container p-5">
         {loader ? (
           "loading data ..."
