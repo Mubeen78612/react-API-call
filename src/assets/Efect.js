@@ -24,15 +24,21 @@ function Efect() {
   }, []);
   return (
     <>
-    <div className="flex flex-col">
-      {data?.map((item,index) => {
-       
-        return (<Clicky key={index} product={{image: item?.thumbnail,name: item?.title,price: item?.price}}/>)
-        
-      })}
-      
-      
-    </div>
+      <div className=" columns-3 p-5">
+        {data?.map((item, index) => {
+          return (
+            <Clicky
+              key={index}
+              item={item}
+              // product={{
+              //   image: item?.thumbnail,
+              //   name: item?.title,
+              //   price: item?.price,
+              // }}
+            />
+          );
+        })}
+      </div>
       <div className="container p-5">
         {loader ? (
           "loading data ..."
@@ -45,7 +51,9 @@ function Efect() {
                 <th className="border-2 border-slate-700">Brand</th>
                 <th className="border-2 border-slate-700">Price</th>
                 <th className="border-2 border-slate-700">Category</th>
-                <th className="border-2 border-slate-700 whitespace-nowrap">Discount Percentage</th>
+                <th className="border-2 border-slate-700 whitespace-nowrap">
+                  Discount Percentage
+                </th>
                 <th className="border-2 border-slate-700">Description</th>
                 <th className="border-2 border-slate-700">Rating</th>
                 <th className="border-2 border-slate-700">Stock</th>
